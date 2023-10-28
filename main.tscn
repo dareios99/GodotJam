@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmm516wgm1a"]
+[gd_scene load_steps=7 format=3 uid="uid://cmm516wgm1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
 [ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
-[ext_resource type="Script" path="res://water.gd" id="4_otxlj"]
-[ext_resource type="Texture2D" path="res://water.png" id="6_3er8h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8tld"]
-size = Vector2(1028, 701)
+[ext_resource type="PackedScene" uid="uid://cme0njbs14hcl" path="res://water.tscn" id="4_87beq"]
 
 [sub_resource type="Gradient" id="Gradient_hbx7q"]
 offsets = PackedFloat32Array(1)
@@ -24,20 +20,7 @@ script = ExtResource("1_2d544")
 [node name="level" parent="." instance=ExtResource("3_ygoo1")]
 z_index = 3
 
-[node name="water" type="Area2D" parent="."]
-z_index = 2
-script = ExtResource("4_otxlj")
-
-[node name="collshape" type="CollisionShape2D" parent="water"]
-position = Vector2(620, 877.5)
-shape = SubResource("RectangleShape2D_u8tld")
-
-[node name="sprite" type="Sprite2D" parent="water"]
-z_index = -2
-position = Vector2(650.424, 698)
-scale = Vector2(0.636768, 0.603207)
-texture = ExtResource("6_3er8h")
-offset = Vector2(0.253967, -0.5)
+[node name="water" parent="." instance=ExtResource("4_87beq")]
 
 [node name="background_low" type="Sprite2D" parent="."]
 z_index = 2
