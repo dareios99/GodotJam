@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var original_gravity = gravity 
 
 var is_in_water = false
+var is_jumping = false
 
 var current_direction = 0
 var current_speed = SPEED
@@ -37,11 +38,14 @@ func _process(delta):
 	
 	if (direction != 0):
 		current_direction = direction
-
-	if direction != 0:
-		_animated_sprite.play("run")
+	
+	if is_jumping:
+		_animated_sprite.play("jump")
 	else:
-		_animated_sprite.play("idle")
+		if direction != 0:
+			_animated_sprite.play("run")
+		else:
+			_animated_sprite.play("idle")
 		
 	_animated_sprite.set_flip_h( current_direction == -1 )
 
@@ -50,10 +54,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	
+	if is_on_floor() and is_jumping:
+		is_jumping = false
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		is_jumping = true
 		velocity.y = current_jump_velocity
-
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
