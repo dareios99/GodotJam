@@ -40,7 +40,11 @@ func _process(delta):
 		current_direction = direction
 	
 	if is_jumping:
-		_animated_sprite.play("jump")
+		var is_going_up = velocity.y < 0
+		if is_going_up:
+			_animated_sprite.play("jump")
+		else:
+			_animated_sprite.play("fall")
 	else:
 		if direction != 0:
 			_animated_sprite.play("run")
@@ -54,7 +58,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	
 	if is_on_floor() and is_jumping:
 		is_jumping = false
 

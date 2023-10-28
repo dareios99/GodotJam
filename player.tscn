@@ -20,6 +20,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_e7i2x")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_yp3j6")
 }, {
 "duration": 1.0,
@@ -44,9 +52,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_ug6vc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_e7i2x")
 }],
 "loop": true,
 "name": &"jump",
@@ -88,8 +93,7 @@ script = ExtResource("1_4vxd3")
 position = Vector2(340, 465.625)
 scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_skn88")
-animation = &"jump"
-frame_progress = 0.730824
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(341, 468)
