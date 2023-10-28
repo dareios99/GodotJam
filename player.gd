@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var _animated_sprite = $Sprite2D
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -11,6 +13,9 @@ var original_gravity = gravity
 
 var is_in_water = false
 
+func _ready():
+	_animated_sprite.play("idle")
+
 func has_entred_water() :
 	is_in_water = true
 	gravity *= 0.9
@@ -19,6 +24,16 @@ func has_exited_water() :
 	is_in_water = false
 	gravity = original_gravity 
 
+
+func _process(delta):
+	var direction = Input.get_axis("left", "right")
+
+	if direction != 0:
+		_animated_sprite.play("run")
+	else:
+		_animated_sprite.play("idle")
+		
+	_animated_sprite.set_flip_h( direction == -1 )
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,5 +51,8 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	
+		
 
 	move_and_slide()
