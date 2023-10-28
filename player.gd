@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var _animated_sprite = $Sprite2D
+@onready var _oxygen_progress_bar = $OxygenProgressBar
 
 
 const SPEED = 300.0
@@ -17,22 +18,61 @@ var current_direction = 0
 var current_speed = SPEED
 var current_jump_velocity = JUMP_VELOCITY
 
+const MAX_OXYGEN_LEVEL = 100
+const OXYGEN_DEPLITION_SPEED = 2
+const OXYGEN_REFILL_SPEED = 2
+
+var oxygen_level = MAX_OXYGEN_LEVEL
+
+var oxygen_depleed_timer = Timer.new()
+var oxygen_refill_timer = Timer.new()
+
 var task_call:Callable  # method to call to initiate a task
 
 func _ready():
 	_animated_sprite.play("idle")
+	
+	oxygen_depleed_timer.wait_time = 1
+	oxygen_depleed_timer.connect("timeout",self._oxygen_depleed_timer_timeout) 
+	
+	oxygen_refill_timer.wait_time = 1
+	oxygen_refill_timer.connect("timeout",self._oxygen_refill_timer_timeout) 
+
+	add_child(oxygen_depleed_timer)
+	add_child(oxygen_refill_timer)
+
+func _oxygen_depleed_timer_timeout():
+	if(oxygen_level >= OXYGEN_DEPLITION_SPEED):
+		oxygen_level -= OXYGEN_DEPLITION_SPEED
+		_oxygen_progress_bar.value = oxygen_level
+	
+func _oxygen_refill_timer_timeout():
+	if(oxygen_level <= MAX_OXYGEN_LEVEL - OXYGEN_REFILL_SPEED):
+		oxygen_level += OXYGEN_REFILL_SPEED
+		_oxygen_progress_bar.value = oxygen_level
+		
+	if oxygen_level == MAX_OXYGEN_LEVEL:
+		_oxygen_progress_bar.hide()
 
 func has_entred_water() :
+	_oxygen_progress_bar.value = oxygen_level
 	is_in_water = true
 	gravity = original_gravity * 0.5
 	current_speed = SPEED * 0.7
 	current_jump_velocity = JUMP_VELOCITY * 0.9
+	
+	_oxygen_progress_bar.show()
+	oxygen_refill_timer.stop()
+	oxygen_depleed_timer.start()
 	
 func has_exited_water() :
 	is_in_water = false
 	gravity = original_gravity 
 	current_speed = SPEED
 	current_jump_velocity = JUMP_VELOCITY
+	
+	oxygen_depleed_timer.stop()
+	oxygen_refill_timer.start()
 
 
 func _process(delta):

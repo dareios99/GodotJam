@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://csi5ops4jxggy"]
+[gd_scene load_steps=7 format=3 uid="uid://dj100r7dhdms6"]
 
 [ext_resource type="Script" path="res://task.gd" id="1_klo4d"]
 [ext_resource type="Texture2D" uid="uid://3d0rtprtnxkt" path="res://taskplaceholder.png" id="2_dxdap"]
-[ext_resource type="Texture2D" path="res://warning_placeholder.jpg" id="3_d585v"]
+[ext_resource type="Texture2D" uid="uid://c6db8ebu85yvd" path="res://warning_placeholder.jpg" id="3_d585v"]
 [ext_resource type="Script" path="res://warning.gd" id="4_wqv68"]
-[ext_resource type="Texture2D" path="res://bar_blue.png" id="5_up18o"]
+[ext_resource type="Texture2D" uid="uid://qt0vy1d5gwxc" path="res://bar_blue.png" id="5_up18o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxfqf"]
 size = Vector2(109, 97)

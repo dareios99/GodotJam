@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://6i002bgkd0gu"]
+[gd_scene load_steps=19 format=3 uid="uid://6i002bgkd0gu"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4vxd3"]
+[ext_resource type="Texture2D" uid="uid://qt0vy1d5gwxc" path="res://bar_blue.png" id="2_k0fo2"]
 [ext_resource type="Texture2D" uid="uid://cgthju40uvofs" path="res://temporary-sprites/Player-idle/player-idle1.png" id="2_yp3j6"]
 [ext_resource type="Texture2D" uid="uid://d3uojc3yilh4c" path="res://temporary-sprites/Player-idle/player-idle2.png" id="3_bx4oy"]
 [ext_resource type="Texture2D" uid="uid://dwtkfyf1qna2x" path="res://temporary-sprites/Player-idle/player-idle3.png" id="4_7fjyc"]
@@ -88,6 +89,13 @@ height = 82.0
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(16, 4)
 script = ExtResource("1_4vxd3")
+
+[node name="OxygenProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 294.0
+offset_top = 429.0
+offset_right = 392.0
+offset_bottom = 443.0
+texture_progress = ExtResource("2_k0fo2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(340, 465.625)
