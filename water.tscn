@@ -11,7 +11,7 @@ z_index = 2
 script = ExtResource("1_tic1l")
 
 [node name="collshape" type="CollisionShape2D" parent="."]
-position = Vector2(620, 877.5)
+position = Vector2(621, 894)
 shape = SubResource("RectangleShape2D_u8tld")
 
 [node name="sprite" type="Sprite2D" parent="."]

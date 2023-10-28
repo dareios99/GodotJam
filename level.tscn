@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://da3t6qp0a73hk"]
+[gd_scene load_steps=8 format=3 uid="uid://da3t6qp0a73hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msa2y"]
-size = Vector2(1064, 73)
+size = Vector2(1064, 64)
 
 [sub_resource type="Gradient" id="Gradient_or8do"]
 
@@ -16,13 +16,16 @@ size = Vector2(66, 546)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jvm31"]
 gradient = SubResource("Gradient_qr7aa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x435e"]
+size = Vector2(103, 20)
+
 [node name="level" type="Node2D"]
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(604, 512)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(34, 41.5)
+position = Vector2(34, 46)
 shape = SubResource("RectangleShape2D_msa2y")
 
 [node name="Sprite2D3" type="Sprite2D" parent="floor"]
@@ -65,3 +68,10 @@ shape = SubResource("RectangleShape2D_8h70k")
 position = Vector2(-33.5, 9.5)
 scale = Vector2(0.308594, 557)
 texture = SubResource("GradientTexture1D_jvm31")
+
+[node name="platform" type="StaticBody2D" parent="."]
+position = Vector2(291, 430)
+
+[node name="collision" type="CollisionShape2D" parent="platform"]
+position = Vector2(31.5, 0)
+shape = SubResource("RectangleShape2D_x435e")
