@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://csi5ops4jxggy"]
+
+[ext_resource type="Script" path="res://task.gd" id="1_klo4d"]
+[ext_resource type="Texture2D" uid="uid://3d0rtprtnxkt" path="res://taskplaceholder.png" id="2_dxdap"]
+[ext_resource type="Texture2D" path="res://warning_placeholder.jpg" id="3_d585v"]
+[ext_resource type="Script" path="res://warning.gd" id="4_wqv68"]
+[ext_resource type="Texture2D" path="res://bar_blue.png" id="5_up18o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxfqf"]
+size = Vector2(109, 97)
+
+[node name="task" type="Area2D"]
+script = ExtResource("1_klo4d")
+task_image = "res://taskplaceholder.png"
+type_of_task = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_mxfqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.882353, 0.392157, 0.937255, 0.705882)
+position = Vector2(-1.33595, -1.80081)
+scale = Vector2(0.289575, 0.306029)
+texture = ExtResource("2_dxdap")
+
+[node name="warning" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(19, 0)
+scale = Vector2(0.359375, 0.359375)
+texture = ExtResource("3_d585v")
+script = ExtResource("4_wqv68")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -50.0
+offset_top = -35.0
+offset_right = 48.0
+offset_bottom = -19.0
+max_value = 20.0
+texture_progress = ExtResource("5_up18o")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

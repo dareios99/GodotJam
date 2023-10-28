@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmm516wgm1a"]
+[gd_scene load_steps=8 format=3 uid="uid://cmm516wgm1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
-[ext_resource type="PackedScene" path="res://level.tscn" id="3_ygoo1"]
-[ext_resource type="PackedScene" path="res://water.tscn" id="4_87beq"]
+[ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
+[ext_resource type="PackedScene" uid="uid://cme0njbs14hcl" path="res://water.tscn" id="4_87beq"]
+[ext_resource type="PackedScene" uid="uid://csi5ops4jxggy" path="res://task.tscn" id="5_n72tg"]
 
 [sub_resource type="Gradient" id="Gradient_hbx7q"]
 offsets = PackedFloat32Array(1)
@@ -33,3 +34,8 @@ z_index = -1
 position = Vector2(642, 274.5)
 scale = Vector2(5, 563)
 texture = SubResource("GradientTexture1D_4kl52")
+
+[node name="task_container" type="Node2D" parent="."]
+
+[node name="task" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(253, 158)

@@ -17,6 +17,8 @@ var current_direction = 0
 var current_speed = SPEED
 var current_jump_velocity = JUMP_VELOCITY
 
+var task_call:Callable  # method to call to initiate a task
+
 func _ready():
 	_animated_sprite.play("idle")
 
@@ -65,7 +67,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_jumping = true
 		velocity.y = current_jump_velocity
-		
+				
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
@@ -75,3 +77,14 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("activate_task"):
+		attempt_task(true)
+	if Input.is_action_just_released("activate_task"):
+		attempt_task(false)
+	
+
+func attempt_task(how:bool): 
+	if (task_call.is_null()):
+		return
+	task_call.call(how)
