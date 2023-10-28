@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmm516wgm1a"]
+[gd_scene load_steps=13 format=3 uid="uid://cmm516wgm1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
@@ -14,6 +14,20 @@ colors = PackedColorArray(0.29219, 0.29219, 0.29219, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4kl52"]
 gradient = SubResource("Gradient_hbx7q")
 
+[sub_resource type="Gradient" id="Gradient_w83yx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.994014, 0.608133, 0.629772, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c6wba"]
+gradient = SubResource("Gradient_w83yx")
+
+[sub_resource type="Gradient" id="Gradient_otmyq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.662452, 0.662452, 0.662452, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ob3a3"]
+gradient = SubResource("Gradient_otmyq")
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_2d544")
 
@@ -26,6 +40,8 @@ z_index = 3
 [node name="water" parent="." instance=ExtResource("4_87beq")]
 modulate = Color(1, 1, 1, 0.52549)
 z_index = 3
+collision_layer = 5
+collision_mask = 5
 
 [node name="background_low" type="Sprite2D" parent="."]
 z_index = 2
@@ -58,5 +74,30 @@ position = Vector2(235, 476)
 type_of_task = 3
 
 [node name="reactor" parent="." instance=ExtResource("6_c4qsd")]
-z_index = 2
-position = Vector2(27, 2)
+collision_layer = 4
+collision_mask = 4
+
+[node name="explosion" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(666, 335.75)
+scale = Vector2(6.20313, 672.5)
+texture = SubResource("GradientTexture1D_c6wba")
+
+[node name="asfiixiia" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(666, 335.75)
+scale = Vector2(6.20313, 672.5)
+texture = SubResource("GradientTexture1D_ob3a3")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 16
+offset_left = 9.0
+offset_top = 269.0
+offset_right = 1277.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 90
+text = "Meltdown!"
+horizontal_alignment = 1
