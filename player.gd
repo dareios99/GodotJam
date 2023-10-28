@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 @onready var _animated_sprite = $Sprite2D
 @onready var _oxygen_progress_bar = $OxygenProgressBar
 
@@ -19,8 +21,8 @@ var current_speed = SPEED
 var current_jump_velocity = JUMP_VELOCITY
 
 const MAX_OXYGEN_LEVEL = 100
-const OXYGEN_DEPLITION_SPEED = 2
-const OXYGEN_REFILL_SPEED = 4
+const OXYGEN_DEPLITION_SPEED = 10
+const OXYGEN_REFILL_SPEED = 20
 
 var oxygen_level = MAX_OXYGEN_LEVEL
 
@@ -44,17 +46,27 @@ func _ready():
 	add_child(oxygen_refill_timer)
 
 func _oxygen_depleed_timer_timeout():
-	if(oxygen_level >= OXYGEN_DEPLITION_SPEED):
-		oxygen_level -= OXYGEN_DEPLITION_SPEED
-		_oxygen_progress_bar.value = oxygen_level
+	if(oxygen_level > 0):
+		oxygen_level -= min(OXYGEN_DEPLITION_SPEED, oxygen_level)
+		
+	_oxygen_progress_bar.value = oxygen_level
+	
+	if(oxygen_level <= 0):
+		oxygen_depleed_timer.stop()
+		died.emit()
+		
 	
 func _oxygen_refill_timer_timeout():
-	if(oxygen_level <= MAX_OXYGEN_LEVEL - OXYGEN_REFILL_SPEED):
-		oxygen_level += OXYGEN_REFILL_SPEED
-		_oxygen_progress_bar.value = oxygen_level
+	if(oxygen_level < MAX_OXYGEN_LEVEL):
+		var level_diff = MAX_OXYGEN_LEVEL - oxygen_level
+		oxygen_level += min(level_diff, OXYGEN_REFILL_SPEED)
 		
+	_oxygen_progress_bar.value = oxygen_level
+	
 	if oxygen_level == MAX_OXYGEN_LEVEL:
+
 		_oxygen_progress_bar.hide()
+		oxygen_refill_timer.stop()
 
 func has_entred_water() :
 	_oxygen_progress_bar.value = oxygen_level
