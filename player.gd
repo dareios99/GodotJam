@@ -93,7 +93,7 @@ func _process(delta):
 		else:
 			_animated_sprite.play("idle")
 		
-	_animated_sprite.set_flip_h( current_direction == -1 )
+	_animated_sprite.set_flip_h( current_direction == 1 )
 
 func _physics_process(delta):
 	# Add the gravity.
