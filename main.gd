@@ -16,6 +16,8 @@ func _ready() -> void:
 	$water.area_exited.connect(reactor_in_water.bind(false))
 	$reactor.Meltdown.connect(explode)
 	
+	$CharacterBody2D.died.connect(asfixiate)
+	
 	
 	for child in $task_container.get_children():
 		if (child is WorkerTask):
@@ -114,10 +116,17 @@ func explode():
 	var tween = create_tween()
 	$explosion.visible = true
 	$explosion.modulate.a = 0
+	$Label.text = "Meltdown!"
 	tween.tween_property($explosion, "modulate:a", 1, 1.5)
 	tween.tween_callback(func(): $Label.visible = true)
 	get_tree().create_timer(4).timeout.connect(func(): get_tree().change_scene_to_file("res://initial.tscn"))
 	
 
 func asfixiate():
-	pass
+	var tween = create_tween()
+	$asfiixiia.visible = true
+	$asfiixiia.modulate.a = 0
+	$Label.text = "Asphyxiated!!"
+	tween.tween_property($asfiixiia, "modulate:a", 1, 1.5)
+	tween.tween_callback(func(): $Label.visible = true)
+	get_tree().create_timer(4).timeout.connect(func(): get_tree().change_scene_to_file("res://initial.tscn"))
