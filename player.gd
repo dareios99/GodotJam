@@ -20,7 +20,7 @@ var current_jump_velocity = JUMP_VELOCITY
 
 const MAX_OXYGEN_LEVEL = 100
 const OXYGEN_DEPLITION_SPEED = 2
-const OXYGEN_REFILL_SPEED = 2
+const OXYGEN_REFILL_SPEED = 4
 
 var oxygen_level = MAX_OXYGEN_LEVEL
 
