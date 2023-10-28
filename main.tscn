@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
-[ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
-[ext_resource type="PackedScene" uid="uid://cme0njbs14hcl" path="res://water.tscn" id="4_87beq"]
+[ext_resource type="PackedScene" path="res://level.tscn" id="3_ygoo1"]
+[ext_resource type="PackedScene" path="res://water.tscn" id="4_87beq"]
 
 [sub_resource type="Gradient" id="Gradient_hbx7q"]
 offsets = PackedFloat32Array(1)
