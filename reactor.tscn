@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bghshcu21ahh4"]
+[gd_scene load_steps=6 format=3 uid="uid://dwaxvkv8x0yag"]
 
 [ext_resource type="Texture2D" uid="uid://dbhj612p5jfmy" path="res://temporary-sprites/Player-duck/player-duck1.png" id="1_k8eiv"]
 [ext_resource type="Script" path="res://reactor.gd" id="1_u0bqq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk26o"]
-radius = 104.0
-height = 360.0
+radius = 64.0
+height = 128.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q4l4r"]
 animations = [{
@@ -21,11 +21,11 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_3gsoo"]
 font_size = 80
 
-[node name="reactor" type="StaticBody2D"]
+[node name="reactor" type="Area2D"]
 script = ExtResource("1_u0bqq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(611, 596)
+position = Vector2(618, 438)
 shape = SubResource("CapsuleShape2D_yk26o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,4 +1,7 @@
-extends StaticBody2D
+extends Area2D
+class_name Reactor
+
+signal Meltdown
 
 const MELT_TIME_LIMIT = 10
 
@@ -16,10 +19,13 @@ func _ready():
 	add_child(melt_timer)
 
 func is_covered_with_water():
+	print("reactor in water")
 	melt_timer.stop()
+	melt_time = 0
 	_count_down_label.hide()
 	
 func is_not_covered_with_water():
+	print("reactor outside water")
 	melt_timer.start()
 	_count_down_label.show()
 	_update_count_down_label()
@@ -31,6 +37,7 @@ func _melt_timer_timeout():
 	if(melt_time == MELT_TIME_LIMIT):
 		_count_down_label.hide()
 		melt_timer.stop()
+		Meltdown.emit()
 
 
 func _update_count_down_label():

@@ -5,7 +5,6 @@ signal died
 @onready var _animated_sprite = $Sprite2D
 @onready var _oxygen_progress_bar = $OxygenProgressBar
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
@@ -143,6 +142,8 @@ func attempt_task(how:bool):
 	task_call.call(how)
 
 func electrocute():
+	if (!is_in_water):
+		return
 	is_electrocuted = true
 	get_tree().create_timer(2.0).timeout.connect(func(): is_electrocuted = false)
 	do_electrocution()
