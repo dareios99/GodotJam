@@ -40,6 +40,7 @@ texture = SubResource("GradientTexture1D_4kl52")
 
 [node name="openpipes" parent="task_container" instance=ExtResource("5_n72tg")]
 position = Vector2(253, 158)
+type_of_task = 1
 
 [node name="closepipes" parent="task_container" instance=ExtResource("5_n72tg")]
 position = Vector2(1031, 158)

@@ -1,7 +1,7 @@
 extends Node2D
 
 var tasks:Array[WorkerTask] =[]
-var danger_level = 0;
+var danger_level = 1;
 var timer:Timer
 
 var has_task_that_removes_water:= false
@@ -44,14 +44,18 @@ func check_for_tasks() -> void:
 		if task.is_active:
 			continue
 		# enum values: ("open_pipes", "close_pipes", "repair_leak", "repair_electricity"
-		if (has_task_that_adds_water): # open_pipes
-			if (task.type_of_task == 2 or task.type_of_task == 1):
+		if (has_task_that_adds_water): # close_pipes, 
+			if (task.type_of_task == 0 or task.type_of_task == 2):
 				continue
 			
-		if (has_task_that_removes_water): # close_pipes, repair leak
-			if (task.type_of_task == 0): 
+		if (has_task_that_removes_water): # open_pipes, repair leak
+			if (task.type_of_task == 1 ): 
 				continue
 		task.activate_task()
+		if (task.type_of_task == 0):
+			has_task_that_removes_water = true
+		if (task.type_of_task == 1 or task.type_of_task == 2):
+			has_task_that_adds_water = true
 		if (task.type_of_task != 3):
 			$water.is_returning_to_normal = false
 		break
@@ -63,6 +67,17 @@ func check_for_tasks() -> void:
 	get_tree().create_timer(random_time).timeout.connect(check_for_tasks)
 	
 func on_task_completed(task:WorkerTask) -> void:
+	# enum values: ("open_pipes", "close_pipes", "repair_leak", "repair_electricity"
+	if (task.type_of_task == 1):
+		has_task_that_adds_water = false
+	if (task.type_of_task == 0 or task.type_of_task == 2):
+		var another_present = false
+		for taska in tasks:
+			if (taska.type_of_task == 0 or taska.type_of_task == 2):
+				another_present = true
+		if (!another_present):
+			has_task_that_removes_water = false
+	
 	for tasku in tasks:
 		if (tasku.is_active and tasku.type_of_task != 3): # if not electric shock, water is still changing
 			return
@@ -78,4 +93,5 @@ func on_produce_water():
 	
 func on_electric_shock():
 	print("electric shock")
+	$CharacterBody2D.electrocute()
 	pass

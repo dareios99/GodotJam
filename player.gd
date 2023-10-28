@@ -29,6 +29,8 @@ var oxygen_refill_timer = Timer.new()
 
 var task_call:Callable  # method to call to initiate a task
 
+var is_electrocuted:bool = false
+
 func _ready():
 	_animated_sprite.play("idle")
 	
@@ -104,7 +106,7 @@ func _physics_process(delta):
 		is_jumping = false
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_electrocuted:
 		is_jumping = true
 		velocity.y = current_jump_velocity
 				
@@ -118,7 +120,7 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("activate_task"):
+	if Input.is_action_just_pressed("activate_task") and !is_electrocuted:
 		attempt_task(true)
 	if Input.is_action_just_released("activate_task"):
 		attempt_task(false)
@@ -128,3 +130,16 @@ func attempt_task(how:bool):
 	if (task_call.is_null()):
 		return
 	task_call.call(how)
+
+func electrocute():
+	is_electrocuted = true
+	get_tree().create_timer(2.0).timeout.connect(func(): is_electrocuted = false)
+	do_electrocution()
+
+func do_electrocution():
+	if (!is_electrocuted):
+		return
+	var twee =  create_tween();
+	twee.tween_property($Sprite2D, "modulate:r", 0, 0.2)
+	twee.tween_property($Sprite2D, "modulate:r", 1, 0.2)
+	twee.tween_callback(do_electrocution)
