@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5nnygfupq3u"]
+
+[ext_resource type="Texture2D" uid="uid://cnah524idlkco" path="res://ken.png" id="1_t8vwa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4237d"]
+radius = 25.0
+height = 82.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(16, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(339, 468)
+scale = Vector2(0.211207, 0.211207)
+texture = ExtResource("1_t8vwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(341, 468)
+shape = SubResource("CapsuleShape2D_4237d")
