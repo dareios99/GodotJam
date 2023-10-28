@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cme0njbs14hcl"]
+[gd_scene load_steps=6 format=3 uid="uid://cme0njbs14hcl"]
 
 [ext_resource type="Script" path="res://water.gd" id="1_tic1l"]
-[ext_resource type="Texture2D" uid="uid://d23hlc80ohruc" path="res://water.png" id="2_a3rq6"]
+[ext_resource type="Texture2D" uid="uid://db3b646by2l0n" path="res://Water/Water1.png" id="2_jn8ak"]
+[ext_resource type="Texture2D" uid="uid://7cigb57wjtfu" path="res://Water/Water2.png" id="3_hynee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8tld"]
 size = Vector2(1028, 701)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kof1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jn8ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hynee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="water" type="Area2D"]
 z_index = 2
@@ -14,9 +29,10 @@ script = ExtResource("1_tic1l")
 position = Vector2(621, 728)
 shape = SubResource("RectangleShape2D_u8tld")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = -2
 position = Vector2(650.424, 530)
 scale = Vector2(0.636768, 0.603207)
-texture = ExtResource("2_a3rq6")
+sprite_frames = SubResource("SpriteFrames_kof1d")
+frame_progress = 0.375318
 offset = Vector2(0.253967, -0.5)

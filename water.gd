@@ -2,7 +2,7 @@ extends Area2D
 
 
 var col_shape:CollisionShape2D
-var sprite:Sprite2D
+var sprite:AnimatedSprite2D
 var change:int = 0
 @export var change_speed:float = 0.7
 @export var minimum_speed:float = 0.3
@@ -12,6 +12,7 @@ var is_returning_to_normal = true
 func _ready() -> void:
 	col_shape = $collshape
 	sprite = $sprite
+	sprite.play("default")
 	
 
 func _physics_process(delta: float) -> void:

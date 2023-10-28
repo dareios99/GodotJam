@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bghshcu21ahh4"]
 
-[ext_resource type="Texture2D" uid="uid://dbhj612p5jfmy" path="res://temporary-sprites/Player-duck/player-duck1.png" id="1_k8eiv"]
 [ext_resource type="Script" path="res://reactor.gd" id="1_u0bqq"]
+[ext_resource type="Texture2D" uid="uid://dh7hyjl1u0422" path="res://Reactor/Reactor_On.png" id="2_bfm4s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk26o"]
 radius = 104.0
@@ -11,7 +11,7 @@ height = 360.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_k8eiv")
+"texture": ExtResource("2_bfm4s")
 }],
 "loop": true,
 "name": &"default",
@@ -29,8 +29,8 @@ position = Vector2(611, 596)
 shape = SubResource("CapsuleShape2D_yk26o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(607, 523)
-scale = Vector2(11.25, 8.8421)
+position = Vector2(615, 495)
+scale = Vector2(0.490223, 0.385396)
 sprite_frames = SubResource("SpriteFrames_q4l4r")
 
 [node name="CountDownLabel" type="Label" parent="."]

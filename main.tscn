@@ -18,15 +18,18 @@ gradient = SubResource("Gradient_hbx7q")
 script = ExtResource("1_2d544")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_ljyrd")]
+position = Vector2(51, 66)
 
 [node name="level" parent="." instance=ExtResource("3_ygoo1")]
 z_index = 3
 
 [node name="water" parent="." instance=ExtResource("4_87beq")]
+modulate = Color(1, 1, 1, 0.52549)
+z_index = 3
 
 [node name="background_low" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(642, 664.5)
+position = Vector2(650, 726)
 scale = Vector2(5, 269)
 texture = SubResource("GradientTexture1D_4kl52")
 
@@ -55,3 +58,5 @@ position = Vector2(235, 476)
 type_of_task = 3
 
 [node name="reactor" parent="." instance=ExtResource("6_c4qsd")]
+z_index = 2
+position = Vector2(27, 2)

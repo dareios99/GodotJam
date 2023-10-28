@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://da3t6qp0a73hk"]
 
-[ext_resource type="Texture2D" uid="uid://ce2nup22kyr6i" path="res://icon.svg" id="1_u0wma"]
+[ext_resource type="Texture2D" uid="uid://qdluhu15ipyk" path="res://Platforms/Platform_Short.png" id="1_yyg1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msa2y"]
 size = Vector2(1064, 64)
@@ -19,15 +19,16 @@ size = Vector2(66, 546)
 gradient = SubResource("Gradient_qr7aa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x435e"]
-size = Vector2(103, 20)
+size = Vector2(177, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b61kq"]
 resource_local_to_scene = true
-size = Vector2(164, 20)
+size = Vector2(180.5, 29.5)
 
 [node name="level" type="Node2D"]
 
 [node name="floor" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(604, 512)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
@@ -79,13 +80,13 @@ texture = SubResource("GradientTexture1D_jvm31")
 position = Vector2(291, 430)
 
 [node name="collision" type="CollisionShape2D" parent="platform"]
-position = Vector2(31.5, 0)
+position = Vector2(34.5, -4)
 shape = SubResource("RectangleShape2D_x435e")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform"]
-position = Vector2(32, -1.90735e-06)
-scale = Vector2(0.828125, 0.171875)
-texture = ExtResource("1_u0wma")
+position = Vector2(33, -3)
+scale = Vector2(0.618182, 0.618182)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform2" type="StaticBody2D" parent="."]
 position = Vector2(932, 430)
@@ -96,11 +97,11 @@ shape = SubResource("RectangleShape2D_x435e")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform2"]
 position = Vector2(32, -1.90735e-06)
-scale = Vector2(0.828125, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform3" type="StaticBody2D" parent="."]
-position = Vector2(443, 333)
+position = Vector2(443, 308)
 
 [node name="collision" type="CollisionShape2D" parent="platform3"]
 position = Vector2(65, 0)
@@ -108,11 +109,11 @@ shape = SubResource("RectangleShape2D_b61kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform3"]
 position = Vector2(63.5, -1.90735e-06)
-scale = Vector2(1.32031, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform4" type="StaticBody2D" parent="."]
-position = Vector2(704, 333)
+position = Vector2(704, 308)
 
 [node name="collision" type="CollisionShape2D" parent="platform4"]
 position = Vector2(65, 0)
@@ -120,35 +121,35 @@ shape = SubResource("RectangleShape2D_b61kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform4"]
 position = Vector2(63.5, -1.90735e-06)
-scale = Vector2(1.32031, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform5" type="StaticBody2D" parent="."]
 position = Vector2(973, 212)
 
 [node name="collision" type="CollisionShape2D" parent="platform5"]
-position = Vector2(65, 0)
+position = Vector2(63.25, -0.25)
 shape = SubResource("RectangleShape2D_b61kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform5"]
 position = Vector2(63.5, -1.90735e-06)
-scale = Vector2(1.32031, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform6" type="StaticBody2D" parent="."]
 position = Vector2(184, 212)
 
 [node name="collision" type="CollisionShape2D" parent="platform6"]
-position = Vector2(65, 0)
+position = Vector2(63.5, 0.5)
 shape = SubResource("RectangleShape2D_b61kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform6"]
 position = Vector2(63.5, -1.90735e-06)
-scale = Vector2(1.32031, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
 
 [node name="platform7" type="StaticBody2D" parent="."]
-position = Vector2(573, 212)
+position = Vector2(573, 196)
 
 [node name="collision" type="CollisionShape2D" parent="platform7"]
 position = Vector2(65, 0)
@@ -156,5 +157,5 @@ shape = SubResource("RectangleShape2D_b61kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="platform7"]
 position = Vector2(63.5, -1.90735e-06)
-scale = Vector2(1.32031, 0.171875)
-texture = ExtResource("1_u0wma")
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("1_yyg1h")
