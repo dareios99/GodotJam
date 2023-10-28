@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cme0njbs14hcl"]
 
 [ext_resource type="Script" path="res://water.gd" id="1_tic1l"]
-[ext_resource type="Texture2D" path="res://water.png" id="2_a3rq6"]
+[ext_resource type="Texture2D" uid="uid://d23hlc80ohruc" path="res://water.png" id="2_a3rq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8tld"]
 size = Vector2(1028, 701)
@@ -11,12 +11,12 @@ z_index = 2
 script = ExtResource("1_tic1l")
 
 [node name="collshape" type="CollisionShape2D" parent="."]
-position = Vector2(621, 894)
+position = Vector2(621, 728)
 shape = SubResource("RectangleShape2D_u8tld")
 
 [node name="sprite" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(650.424, 698)
+position = Vector2(650.424, 530)
 scale = Vector2(0.636768, 0.603207)
 texture = ExtResource("2_a3rq6")
 offset = Vector2(0.253967, -0.5)

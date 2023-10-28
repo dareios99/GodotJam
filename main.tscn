@@ -38,7 +38,19 @@ texture = SubResource("GradientTexture1D_4kl52")
 
 [node name="task_container" type="Node2D" parent="."]
 
-[node name="task" parent="task_container" instance=ExtResource("5_n72tg")]
+[node name="openpipes" parent="task_container" instance=ExtResource("5_n72tg")]
 position = Vector2(253, 158)
+
+[node name="closepipes" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(1031, 158)
+type_of_task = 1
+
+[node name="repairleak" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(1041, 476)
+type_of_task = 2
+
+[node name="repair_electricity" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(235, 476)
+type_of_task = 3
 
 [node name="reactor" parent="." instance=ExtResource("6_c4qsd")]

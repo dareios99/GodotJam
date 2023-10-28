@@ -6,6 +6,7 @@ var sprite:Sprite2D
 var change:int = 0
 @export var change_speed:float = 0.7
 @export var minimum_speed:float = 0.3
+var is_returning_to_normal = true
 
 
 func _ready() -> void:
@@ -30,11 +31,11 @@ func _physics_process(delta: float) -> void:
 			change = 0
 		go_down(amount)	
 		return
-	if (change == 0):
-		go_up(minimum_speed)
-
-
-
+	if (is_returning_to_normal):
+		if sprite.position.y > 530:
+			go_up(minimum_speed)
+		if sprite.position.y < 530:
+			go_down(minimum_speed)
 
 
 func go_up(amount:float) -> void:
