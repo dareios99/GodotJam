@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
-[ext_resource type="PackedScene" path="res://level.tscn" id="3_ygoo1"]
-[ext_resource type="PackedScene" path="res://water.tscn" id="4_87beq"]
-[ext_resource type="PackedScene" uid="uid://dj100r7dhdms6" path="res://task.tscn" id="5_n72tg"]
+[ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
+[ext_resource type="PackedScene" uid="uid://cme0njbs14hcl" path="res://water.tscn" id="4_87beq"]
+[ext_resource type="PackedScene" uid="uid://csi5ops4jxggy" path="res://task.tscn" id="5_n72tg"]
 
 [sub_resource type="Gradient" id="Gradient_hbx7q"]
 offsets = PackedFloat32Array(1)
@@ -37,5 +37,17 @@ texture = SubResource("GradientTexture1D_4kl52")
 
 [node name="task_container" type="Node2D" parent="."]
 
-[node name="task" parent="task_container" instance=ExtResource("5_n72tg")]
+[node name="openpipes" parent="task_container" instance=ExtResource("5_n72tg")]
 position = Vector2(253, 158)
+
+[node name="closepipes" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(1031, 158)
+type_of_task = 1
+
+[node name="repairleak" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(1041, 476)
+type_of_task = 2
+
+[node name="repair_electricity" parent="task_container" instance=ExtResource("5_n72tg")]
+position = Vector2(235, 476)
+type_of_task = 3

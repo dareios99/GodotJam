@@ -1,13 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj100r7dhdms6"]
+[gd_scene load_steps=9 format=3 uid="uid://csi5ops4jxggy"]
 
 [ext_resource type="Script" path="res://task.gd" id="1_klo4d"]
 [ext_resource type="Texture2D" uid="uid://3d0rtprtnxkt" path="res://taskplaceholder.png" id="2_dxdap"]
 [ext_resource type="Texture2D" uid="uid://c6db8ebu85yvd" path="res://warning_placeholder.jpg" id="3_d585v"]
 [ext_resource type="Script" path="res://warning.gd" id="4_wqv68"]
 [ext_resource type="Texture2D" uid="uid://qt0vy1d5gwxc" path="res://bar_blue.png" id="5_up18o"]
+[ext_resource type="Texture2D" uid="uid://b7ueyvo56v0mj" path="res://particles/fire_02.png" id="6_fqlgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxfqf"]
 size = Vector2(109, 97)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xidk2"]
+lifetime_randomness = 0.06
+particle_flag_disable_z = true
+direction = Vector3(10, -30, 0)
+spread = 48.78
+flatness = 0.08
+gravity = Vector3(0, 70, 0)
+initial_velocity_min = 24.05
+initial_velocity_max = 129.32
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 1.053
+damping_max = 22.105
+scale_min = 0.05
+scale_max = 0.05
+color = Color(0.231373, 0.639216, 0.972549, 1)
 
 [node name="task" type="Area2D"]
 script = ExtResource("1_klo4d")
@@ -38,6 +56,12 @@ offset_right = 48.0
 offset_bottom = -19.0
 max_value = 20.0
 texture_progress = ExtResource("5_up18o")
+
+[node name="water_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_xidk2")
+texture = ExtResource("6_fqlgh")
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
