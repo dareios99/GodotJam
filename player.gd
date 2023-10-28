@@ -64,8 +64,7 @@ func _oxygen_refill_timer_timeout():
 	_oxygen_progress_bar.value = oxygen_level
 	
 	if oxygen_level == MAX_OXYGEN_LEVEL:
-
-		_oxygen_progress_bar.hide()
+		get_tree().create_timer(1).timeout.connect(func(): _oxygen_progress_bar.hide())
 		oxygen_refill_timer.stop()
 
 func has_entred_water() :
