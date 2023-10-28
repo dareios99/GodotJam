@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi5nnygfupq3u"]
+[gd_scene load_steps=4 format=3 uid="uid://6i002bgkd0gu"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_4vxd3"]
 [ext_resource type="Texture2D" uid="uid://cnah524idlkco" path="res://ken.png" id="1_t8vwa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4237d"]
@@ -8,6 +9,7 @@ height = 82.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(16, 4)
+script = ExtResource("1_4vxd3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(339, 468)
