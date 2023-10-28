@@ -4,11 +4,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	$water.area_entered.connect(character_in_water.bind(true))
-	$water.area_exited.connect(character_in_water.bind(false))
+	$water.area_entered.connect($CharacterBody2D.has_entred_water)
+	$water.area_exited.connect($CharacterBody2D.has_exited_water)
 	
-
-
-func character_in_water(is_entered:bool):
-	
-		

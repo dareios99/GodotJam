@@ -1,11 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmm516wgm1a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d544"]
-
-[ext_resource type="PackedScene" uid="uid://bi5nnygfupq3u" path="res://player.tscn" id="2_ljyrd"]
+[ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
 [ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
 [ext_resource type="Script" path="res://water.gd" id="4_otxlj"]
-[ext_resource type="Texture2D" uid="uid://d23hlc80ohruc" path="res://water.png" id="6_3er8h"]
+[ext_resource type="Texture2D" path="res://water.png" id="6_3er8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8tld"]
 size = Vector2(1028, 701)
@@ -16,7 +15,6 @@ colors = PackedColorArray(0.29219, 0.29219, 0.29219, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4kl52"]
 gradient = SubResource("Gradient_hbx7q")
-
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_2d544")
