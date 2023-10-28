@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwaxvkv8x0yag"]
+[gd_scene load_steps=7 format=3 uid="uid://dwaxvkv8x0yag"]
 
 [ext_resource type="Script" path="res://reactor.gd" id="1_u0bqq"]
-[ext_resource type="Texture2D" uid="uid://dh7hyjl1u0422" path="res://Reactor/Reactor_On.png" id="2_bfm4s"]
+[ext_resource type="Texture2D" uid="uid://b7obwl0jxgk7f" path="res://Reactor2.png" id="2_62n83"]
+[ext_resource type="Texture2D" uid="uid://dxvkpgnwylkaq" path="res://Reactor.png" id="3_lhuli"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk26o"]
 radius = 64.0
@@ -11,34 +12,39 @@ height = 128.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bfm4s")
+"texture": ExtResource("2_62n83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lhuli")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3gsoo"]
 font_size = 80
+font_color = Color(0.847059, 0.109804, 0.164706, 1)
 
 [node name="reactor" type="Area2D"]
 script = ExtResource("1_u0bqq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(618, 438)
+position = Vector2(618, 505)
 shape = SubResource("CapsuleShape2D_yk26o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(615, 495)
+position = Vector2(615, 364)
 scale = Vector2(0.490223, 0.385396)
 sprite_frames = SubResource("SpriteFrames_q4l4r")
+frame_progress = 0.0582384
 
 [node name="CountDownLabel" type="Label" parent="."]
-visible = false
+z_index = 14
 offset_left = 567.0
-offset_top = 250.0
+offset_top = 458.0
 offset_right = 659.0
-offset_bottom = 370.0
+offset_bottom = 578.0
 text = "10"
 label_settings = SubResource("LabelSettings_3gsoo")
 horizontal_alignment = 1

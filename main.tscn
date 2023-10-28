@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://6i002bgkd0gu" path="res://player.tscn" id="2_ljyrd"]
 [ext_resource type="PackedScene" uid="uid://da3t6qp0a73hk" path="res://level.tscn" id="3_ygoo1"]
 [ext_resource type="PackedScene" uid="uid://cme0njbs14hcl" path="res://water.tscn" id="4_87beq"]
-[ext_resource type="PackedScene" uid="uid://dj100r7dhdms6" path="res://task.tscn" id="5_n72tg"]
-[ext_resource type="PackedScene" uid="uid://bghshcu21ahh4" path="res://reactor.tscn" id="6_c4qsd"]
+[ext_resource type="PackedScene" uid="uid://csi5ops4jxggy" path="res://task.tscn" id="5_n72tg"]
+[ext_resource type="PackedScene" uid="uid://dwaxvkv8x0yag" path="res://reactor.tscn" id="6_c4qsd"]
 
 [sub_resource type="Gradient" id="Gradient_hbx7q"]
 offsets = PackedFloat32Array(1)
@@ -32,7 +32,7 @@ gradient = SubResource("Gradient_otmyq")
 script = ExtResource("1_2d544")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_ljyrd")]
-position = Vector2(51, 66)
+position = Vector2(649, 135)
 
 [node name="level" parent="." instance=ExtResource("3_ygoo1")]
 z_index = 3
@@ -74,6 +74,7 @@ position = Vector2(235, 476)
 type_of_task = 3
 
 [node name="reactor" parent="." instance=ExtResource("6_c4qsd")]
+position = Vector2(0, 13)
 collision_layer = 4
 collision_mask = 4
 
@@ -101,3 +102,5 @@ offset_bottom = 396.0
 theme_override_font_sizes/font_size = 90
 text = "Meltdown!"
 horizontal_alignment = 1
+
+[editable path="water"]

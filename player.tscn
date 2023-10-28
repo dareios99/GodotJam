@@ -55,11 +55,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4237d"]
-radius = 37.0
-height = 84.0
+radius = 27.0
+height = 66.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(16, 4)
+position = Vector2(16, 3)
 script = ExtResource("1_4vxd3")
 
 [node name="OxygenProgressBar" type="TextureProgressBar" parent="."]
@@ -70,11 +70,11 @@ offset_bottom = 423.0
 texture_progress = ExtResource("2_k0fo2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(350, 472)
-scale = Vector2(0.440844, 0.440844)
+position = Vector2(-8, -5)
+scale = Vector2(0.36857, 0.36857)
 sprite_frames = SubResource("SpriteFrames_6vtee")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(339, 468)
+position = Vector2(-19, -2)
 shape = SubResource("CapsuleShape2D_4237d")

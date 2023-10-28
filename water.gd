@@ -33,20 +33,20 @@ func _physics_process(delta: float) -> void:
 		go_down(amount)	
 		return
 	if (is_returning_to_normal):
-		if sprite.position.y > 530:
+		if sprite.position.y > 760:
 			go_up(minimum_speed)
-		if sprite.position.y < 530:
+		if sprite.position.y < 760:
 			go_down(minimum_speed)
 
 
 func go_up(amount:float) -> void:
-	if (sprite.position.y <= 272):
+	if (sprite.position.y <= 421):
 		return
 	col_shape.position.y -= amount;
 	sprite.position.y -= amount
 
 func go_down(amount:float) -> void:
-	if (sprite.position.y >= 698):
+	if (sprite.position.y >= 970):
 		return
 	col_shape.position.y += amount;
 	sprite.position.y += amount

@@ -31,8 +31,8 @@ shape = SubResource("RectangleShape2D_u8tld")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = -2
-position = Vector2(650.424, 530)
-scale = Vector2(0.636768, 0.603207)
+position = Vector2(621.089, 695.89)
+scale = Vector2(0.5331, 0.487977)
 sprite_frames = SubResource("SpriteFrames_kof1d")
 frame_progress = 0.375318
 offset = Vector2(0.253967, -0.5)
