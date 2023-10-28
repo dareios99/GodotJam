@@ -63,10 +63,11 @@ position = Vector2(16, 3)
 script = ExtResource("1_4vxd3")
 
 [node name="OxygenProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 296.0
-offset_top = 409.0
-offset_right = 394.0
-offset_bottom = 423.0
+modulate = Color(53, 1, 0, 1)
+offset_left = -65.0
+offset_top = -64.0
+offset_right = 33.0
+offset_bottom = -50.0
 texture_progress = ExtResource("2_k0fo2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

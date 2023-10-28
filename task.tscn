@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://csi5ops4jxggy"]
 
 [ext_resource type="Script" path="res://task.gd" id="1_klo4d"]
-[ext_resource type="Texture2D" uid="uid://3d0rtprtnxkt" path="res://taskplaceholder.png" id="2_dxdap"]
+[ext_resource type="Texture2D" uid="uid://dviulp72udj4l" path="res://WaterPipe/Pipe/Pipe4.png" id="2_23ana"]
 [ext_resource type="Texture2D" uid="uid://c6db8ebu85yvd" path="res://warning_placeholder.jpg" id="3_d585v"]
 [ext_resource type="Script" path="res://warning.gd" id="4_wqv68"]
 [ext_resource type="Texture2D" uid="uid://qt0vy1d5gwxc" path="res://bar_blue.png" id="5_up18o"]
@@ -38,9 +38,9 @@ shape = SubResource("RectangleShape2D_mxfqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.882353, 0.392157, 0.937255, 0.705882)
-position = Vector2(-1.33595, -1.80081)
+position = Vector2(1, 67)
 scale = Vector2(0.289575, 0.306029)
-texture = ExtResource("2_dxdap")
+texture = ExtResource("2_23ana")
 
 [node name="warning" type="Sprite2D" parent="."]
 visible = false

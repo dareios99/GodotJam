@@ -37,7 +37,7 @@ shape = SubResource("CapsuleShape2D_yk26o")
 position = Vector2(615, 364)
 scale = Vector2(0.490223, 0.385396)
 sprite_frames = SubResource("SpriteFrames_q4l4r")
-frame_progress = 0.0582384
+frame_progress = 0.389646
 
 [node name="CountDownLabel" type="Label" parent="."]
 z_index = 14

@@ -58,23 +58,29 @@ texture = SubResource("GradientTexture1D_4kl52")
 [node name="task_container" type="Node2D" parent="."]
 
 [node name="openpipes" parent="task_container" instance=ExtResource("5_n72tg")]
-position = Vector2(253, 158)
+position = Vector2(219, 158)
+scale = Vector2(-1, 1)
+task_image = "res://WaterPipe/Pipe/Pipe3.png"
 type_of_task = 1
 
 [node name="closepipes" parent="task_container" instance=ExtResource("5_n72tg")]
-position = Vector2(1031, 158)
+position = Vector2(1054, 158)
+task_image = "res://WaterPipe/Pipe/Pipe3.png"
 type_of_task = 1
 
 [node name="repairleak" parent="task_container" instance=ExtResource("5_n72tg")]
-position = Vector2(1041, 476)
+position = Vector2(1054, 534)
+rotation = 1.5708
+task_image = "res://WaterPipe/Pipe/Pipe3.png"
 type_of_task = 2
 
 [node name="repair_electricity" parent="task_container" instance=ExtResource("5_n72tg")]
-position = Vector2(235, 476)
+position = Vector2(226, 489)
+task_image = "res://Untitled_Artwork.png"
 type_of_task = 3
 
 [node name="reactor" parent="." instance=ExtResource("6_c4qsd")]
-position = Vector2(0, 13)
+position = Vector2(10, 12)
 collision_layer = 4
 collision_mask = 4
 

@@ -36,6 +36,7 @@ position = Vector2(34, 46)
 shape = SubResource("RectangleShape2D_msa2y")
 
 [node name="Sprite2D4" type="Sprite2D" parent="floor"]
+z_index = 1
 position = Vector2(33.2202, -229)
 rotation = -3.14159
 scale = Vector2(0.560646, 0.564584)
@@ -56,8 +57,9 @@ position = Vector2(34, 41.5)
 shape = SubResource("RectangleShape2D_msa2y")
 
 [node name="Sprite2D3" type="Sprite2D" parent="roof"]
-position = Vector2(33, 314)
-scale = Vector2(0.564583, 0.564583)
+z_index = 1
+position = Vector2(36, 314)
+scale = Vector2(0.561458, 0.564583)
 texture = ExtResource("1_5ox2s")
 flip_v = true
 
@@ -78,7 +80,7 @@ texture = ExtResource("1_5ox2s")
 position = Vector2(1172, 302)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
-position = Vector2(-34, 13)
+position = Vector2(-23, 22)
 shape = SubResource("RectangleShape2D_8h70k")
 
 [node name="Sprite2D" type="Sprite2D" parent="wall2"]
@@ -88,13 +90,13 @@ scale = Vector2(0.308594, 557)
 texture = SubResource("GradientTexture1D_jvm31")
 
 [node name="Sprite2D2" type="Sprite2D" parent="wall2"]
-position = Vector2(-311, 26.5872)
+position = Vector2(-304, 32)
 rotation = -1.5708
 scale = Vector2(0.273876, 0.568979)
 texture = ExtResource("1_5ox2s")
 
 [node name="platform" type="StaticBody2D" parent="."]
-position = Vector2(291, 430)
+position = Vector2(291, 439)
 
 [node name="collision" type="CollisionShape2D" parent="platform"]
 position = Vector2(34.5, -4)
@@ -106,7 +108,7 @@ scale = Vector2(0.618182, 0.618182)
 texture = ExtResource("1_yyg1h")
 
 [node name="platform2" type="StaticBody2D" parent="."]
-position = Vector2(932, 430)
+position = Vector2(932, 439)
 
 [node name="collision" type="CollisionShape2D" parent="platform2"]
 position = Vector2(31.5, 0)
