@@ -92,7 +92,7 @@ scale = Vector2(6.20313, 672.5)
 texture = SubResource("GradientTexture1D_c6wba")
 
 [node name="asfiixiia" type="Sprite2D" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 4
 position = Vector2(666, 335.75)
 scale = Vector2(6.20313, 672.5)

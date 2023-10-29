@@ -17,7 +17,7 @@ func _ready() -> void:
 	$reactor.Meltdown.connect(explode)
 	
 	$CharacterBody2D.died.connect(asfixiate)
-	
+	$CharacterBody2D.OxygenLow.connect(onOxygenUpdate)
 	
 	for child in $task_container.get_children():
 		if (child is WorkerTask):
@@ -125,8 +125,17 @@ func explode():
 func asfixiate():
 	var tween = create_tween()
 	$asfiixiia.visible = true
-	$asfiixiia.modulate.a = 0
+#	$asfiixiia.modulate.a = 0
 	$Label.text = "Asphyxiated!!"
 	tween.tween_property($asfiixiia, "modulate:a", 1, 1.5)
 	tween.tween_callback(func(): $Label.visible = true)
 	get_tree().create_timer(4).timeout.connect(func(): get_tree().change_scene_to_file("res://initial.tscn"))
+
+func onOxygenUpdate(amount:int):
+	var target = 0
+	var tween = create_tween()
+	if (amount > 25):
+		tween.tween_property($asfiixiia, "modulate:a", 0, 0.6)
+	else:
+		tween.tween_property($asfiixiia, "modulate:a", 1, 3.0)
+	

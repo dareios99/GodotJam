@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal died
+signal OxygenLow
 
 @onready var _animated_sprite = $Sprite2D
 @onready var _oxygen_progress_bar = $OxygenProgressBar
@@ -49,6 +50,8 @@ func _oxygen_depleed_timer_timeout():
 		oxygen_level -= min(OXYGEN_DEPLITION_SPEED, oxygen_level)
 		
 	_oxygen_progress_bar.value = oxygen_level
+	if (oxygen_level < 25):
+		OxygenLow.emit(oxygen_level)
 	
 	if(oxygen_level <= 0):
 		oxygen_depleed_timer.stop()
@@ -56,6 +59,9 @@ func _oxygen_depleed_timer_timeout():
 		
 	
 func _oxygen_refill_timer_timeout():
+	if (oxygen_level > 25):
+		OxygenLow.emit(oxygen_level)
+	
 	if(oxygen_level < MAX_OXYGEN_LEVEL):
 		var level_diff = MAX_OXYGEN_LEVEL - oxygen_level
 		oxygen_level += min(level_diff, OXYGEN_REFILL_SPEED)
